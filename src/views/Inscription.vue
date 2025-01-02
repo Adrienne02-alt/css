@@ -32,7 +32,7 @@
                         <option value="technicien">Technicien</option>
                     </select>
                   </div>
-                  <button type="submit" class="btn btn-danger w-100 py-8 fs-4 mb-4 rounded-2">Enregistrer.</button>
+                  <button type="submit" class="btn btn-danger w-100 py-8 fs-4 mb-4 rounded-2">Enregistrer</button>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">Déja inscrit?</p>
                     <router-link :to="{name: 'LoginConnexion'}" class="text-danger fw-bold ms-2" href="./authentication-login.html">Se connecter</router-link>
