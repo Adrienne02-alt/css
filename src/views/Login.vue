@@ -27,7 +27,7 @@
                       <input 
                         type="email" 
                         class="form-control" 
-                        name="email" 
+                        v-model="email" 
                         id="email" 
                         aria-describedby="emailHelp"
                       >
@@ -37,7 +37,7 @@
                       <input 
                         type="password" 
                         class="form-control" 
-                        name="pass" 
+                        v-model="password" 
                         id="password"
                       >
                     </div>
@@ -75,9 +75,36 @@
     </div>
   </template>
   
-  <script>
+<script>
+  import { postData } from '../service/apiService';
   export default {
     name: 'LoginConnexion',
-  };
-  </script>
+    data() {
+    return {
+      email: '',
+      password: ''
+    };
+  },
+  methods: {
+    async handleLogin() {
+      postData('/login', {
+        email: this.email,
+        password: this.password
+      })
+      .then(response => {
+        console.log(response);
+        localStorage.setItem('user', this.email);
+        this.$router.push('/dashboard');
+      })
+      .catch(error => {
+        if (error.response) {
+          window.alert(`Erreur ${error.response.status} : ${error.response.data || 'Erreur inconnue'}`);
+        } else {
+          window.alert(`Une erreur est survenue : ${error.message || 'Erreur inconnue'}`);
+        }
+      });
+    }
+  }
+};
+</script>
   

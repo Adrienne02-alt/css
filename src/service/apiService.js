@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api_url = axios.create({
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'https://ticke-production.up.railway.app/api',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -28,7 +28,6 @@ export const postData = async (endpoint, data) => {
     }
 };
 
-// Ajout de la fonction PUT
 export const putData = async (endpoint, data) => {
     try {
         const response = await api_url.put(endpoint, data);
@@ -39,7 +38,6 @@ export const putData = async (endpoint, data) => {
     }
 };
 
-// Ajout de la fonction DELETE
 export const deleteData = async (endpoint) => {
     try {
         const response = await api_url.delete(endpoint);

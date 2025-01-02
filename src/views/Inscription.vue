@@ -15,19 +15,19 @@
                 <form>
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Nom complet</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <input type="text" v-model="form.nom"  class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" v-model="form.email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" v-model="form.password"  class="form-control" id="exampleInputPassword1">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Role</label>
-                    <select name="role" class="form-control" id="">
+                    <select name="role" v-model="form.role"  class="form-control" id="">
                         <option value="employe">Employe</option>
                         <option value="technicien">Technicien</option>
                     </select>
@@ -48,8 +48,29 @@
   </template>
   
   <script>
+  import { postData } from '../service/apiService';
   export default {
     name: 'InscriptionConnexion',
+    data() {
+    return {
+      form: {
+        nom: '',
+        email: '',
+        password: '',
+        role: ''
+      }
+    };
+  },
+  methods: {
+    async handleSubmit() {
+      try {
+        await postData('/insertion_user', this.form);
+        this.$router.push('/dashboard');
+      } catch (error) {
+        console.error('Erreur lors de l\'inscription:', error);
+      }
+    }
+  }
   };
   </script>
   
