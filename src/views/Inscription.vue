@@ -63,6 +63,7 @@
   },
   methods: {
     async handleSubmit() {
+      console.log(this.form);
       try {
         await postData('/insertion_user', this.form);
         console.log("cc");
