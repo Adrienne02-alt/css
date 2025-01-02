@@ -12,7 +12,7 @@
                   <img src="../../public/images/logos/Image1.png" width="180" alt="">
                 </a>
                 <p class="text-center">Engagé pour une énergie meilleur</p>
-                <form>
+                <form @submit.prevent="handleSubmit">
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Nom complet</label>
                     <input type="text" v-model="form.nom"  class="form-control" id="exampleInputtext1" aria-describedby="textHelp">

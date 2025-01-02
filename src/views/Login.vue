@@ -21,7 +21,7 @@
                     <img src="../../public/images/logos/Image1.png" width="180" alt="Logo">
                   </a>
                   <p class="text-center">Engagé pour une énergie meilleure</p>
-                  <form action="" method="post">
+                  <form @submit.prevent="handleLogin" method="post">
                     <div class="mb-3">
                       <label for="email" class="form-label">Identifiant employés (Matricule) ou email</label>
                       <input 
