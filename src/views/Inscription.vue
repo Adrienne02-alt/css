@@ -65,6 +65,7 @@
     async handleSubmit() {
       try {
         await postData('/insertion_user', this.form);
+        console.log("cc");
         this.$router.push('/dashboard');
       } catch (error) {
         console.error('Erreur lors de l\'inscription:', error);
