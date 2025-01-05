@@ -88,7 +88,7 @@ export default {
         );
         console.log(response);
         localStorage.setItem('user', this.email);
-        this.$router.push('/dashboard');
+        this.$router.push({name:'LoginConnexion'});
       } catch (error) {
         if (error.response) {
           window.alert(`Erreur ${error.response.status} : ${error.response.data || 'Erreur inconnue'}`);

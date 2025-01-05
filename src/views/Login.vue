@@ -93,8 +93,12 @@
       })
       .then(response => {
         console.log(response);
-        localStorage.setItem('user', this.email);
-        this.$router.push('/dashboard');
+        const {id, role, email, nom} = response;
+        localStorage.setItem('id', id);
+        localStorage.setItem('role', role);
+        localStorage.setItem('email', email);
+        localStorage.setItem('token', nom);
+        this.$router.push('/categorie');
       })
       .catch(error => {
         if (error.response) {

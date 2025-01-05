@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api_url = axios.create({
-    baseURL: 'https://ticke-production.up.railway.app/api',
+    baseURL: 'http://localhost:8080/api',
     headers: {
         'Content-Type': 'application/json',
     },
